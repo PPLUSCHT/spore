@@ -1,0 +1,25 @@
+.timeframe-container{
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-background);
+    padding-top: 13px;
+}
+
+.action-button{
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    background-color: var(--primary-background);
+}
+
+.selected-button{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--active);
+    border: none;
+    background-color: var(--primary-background);
+}
+
+.action-button:hover{
+    color: var(--active)
+}

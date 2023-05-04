@@ -1,0 +1,26 @@
+<div class="sign-up-box">
+    <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()" class="sign-up-form">
+        <div class="input-row">
+            <label for="username" class="username-label">Username: </label>
+            <input id="username" type="text" formControlName="username"  class="username-input">
+        </div>
+        <ng-container class="username-errors">
+            <span *ngIf="!usernameLongEnough" class="alert-message">*Username too short</span>
+            <span *ngIf="!usernameShortEnough" class="alert-message">*Username too long</span>
+            <span *ngIf="!usernameUniqueBool" class="alert-message">*Username must be unique</span>
+        </ng-container>
+        <div class="input-row">
+            <label for="password"  class="password-label">Password: </label>
+            <input id="password" type="text" formControlName="password"  class="password-input">
+        </div>
+        <ng-container class="password-errors">
+            <span *ngIf="!passwordLongEnough" class="alert-message">*Password too short</span>
+            <span *ngIf="!passwordShortEnough" class="alert-message">*Password too long</span>
+            <span *ngIf="!passwordContainsCapital" class="alert-message">*Password needs a capital letter</span>
+            <span *ngIf="!passwordContainsLowercase" class="alert-message">*Password needs a lowercase letter</span>
+            <span *ngIf="!passwordContainsNumber" class="alert-message">*Password needs a number</span>
+            <span *ngIf="!passwordContainsSpecial" class="alert-message">*Password needs a special character: !@#$%^&*_+=;:<>?~</span>
+        </ng-container>
+        <button class="login-button" type="submit" class="sign-up-button">Sign Up</button>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<div class="post">
+    <div class="user-info">
+        <span>{{postData.posterName}} | {{postData.timeString}}</span>
+    </div>
+    <div>{{postData.voteTotal}}</div>
+    <ng-content select="[post-title]"></ng-content>
+    <ng-content select="[content]"></ng-content>
+    <ng-content select="[button-container]"></ng-content>
+    <ng-content select="[reply-dialog]"></ng-content>
+    <app-comment-container></app-comment-container>
+</div>

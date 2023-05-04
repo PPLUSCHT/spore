@@ -1,0 +1,10 @@
+<div class="post-card" (click)="routeToPost()">
+    <div class="user-info">
+        <span>{{postData.posterName}} | {{postData.timeString}}</span>
+    </div>
+    <h3>{{postData.title}}</h3>
+    <div class="content-and-votes">
+        <div class="votes">{{postData.voteTotal}}</div>
+        <div class="content" *ngIf="this" #content>{{postData.content}}</div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="nav-bar">
+    <div class="logo">
+        Spore
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-input" #searchInput [formControl]="searchForm"  
+                (focus)="selectionChange()" (blur)="selectionChange()" 
+                (keydown.enter)="searchInput.blur(); routeToSearch()">
+        <div class="results-container" *ngIf="this.searchResults || this.mouseFocus != 0 || this.searchFocus">
+            <ul *ngFor="let result of results">
+                <li (click)="routeToPost(result.postID)" (mouseover)="this.mouseFocus = result.postID" (mouseleave)="this.mouseFocus = 0">
+                    <span class="result">{{result.title}}</span>
+                </li>
+            </ul>
+            <span class="see-results" (click)="routeToSearch()" (mouseover)="this.searchFocus = true" (mouseleave)="this.searchFocus = false">Search</span>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="action-button" (click)="this.homeButton()">
+            <span>Home</span>
+        </button>
+        <ng-container *ngIf="loggedIn">
+            <button class="action-button" (click)="this.newPostButton()">
+                <span>New Post</span>
+            </button>
+            <button class="action-button" (click)="this.logoutButton()">
+                <span>Logout</span>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="!loggedIn">
+            <button class="action-button" (click)="this.loginButton()">
+                <span>Login</span>
+            </button>
+            <button class="action-button" (click)="this.signUpButton()">
+                <span>Sign up</span>
+            </button>
+        </ng-container>
+    </div>
+</div>

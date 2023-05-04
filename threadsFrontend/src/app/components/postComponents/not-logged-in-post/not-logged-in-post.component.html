@@ -1,0 +1,19 @@
+<div class="post-and-comments">
+    <div class="user-post">
+        <div class="user-info">
+            <span>{{postData.posterName}} | {{postData.timeString}}</span>
+        </div>
+        <div class="post-title">
+            <h2>{{this.postData.title}}</h2>
+        </div>
+        <div class="content-and-votes">
+            <div class="votes">
+                <span>{{postData.voteTotal}}</span>
+            </div>
+            <div class="content">
+                {{this.postData.content}}
+            </div>
+        </div>
+    </div>
+<app-comment-container></app-comment-container>
+</div>

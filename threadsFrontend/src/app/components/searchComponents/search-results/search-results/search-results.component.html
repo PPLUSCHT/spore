@@ -1,0 +1,23 @@
+<ng-container>
+    <div *ngIf="!postsExist" class="empty-cards">
+        No results found for "{{this.query}}"
+    </div>
+    <div *ngIf="postsExist" class="post-card-container"
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        (scrolled)="onScroll()">
+        <h3>Results found for "{{this.query}}"</h3>
+        <ul *ngFor="let post of posts | async">
+            <li>
+                <app-post-card [postData]="post"></app-post-card>
+            </li>
+        </ul>
+        <div *ngIf="this.loading" class="loading-container">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div *ngIf="this.outOfPosts" class="out-of-posts-container">
+            No more posts match this search
+        </div>
+    </div>
+</ng-container>

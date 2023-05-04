@@ -1,0 +1,13 @@
+<div class="form-page">
+    <form [formGroup]="form" class="form-container">
+        <input type="text" formControlName="title" [ngClass]="titleClicked ? 'title-input' : 'title-area-unclicked'" (click)="titleClick()">
+        <div class="character-count-container">
+            <app-character-count (withinLengthEmitter)="updateLengthConstraintTitle($event)" [maxLength]="MAX_LENGTH_TITLE" [content]="currentTitle"></app-character-count>
+        </div>
+        <textarea name="inputTextBox" formControlName="body" [ngClass]="bodyClicked ? 'body-area' : 'body-area-unclicked'" (click)="bodyClick()"></textarea>
+        <div class="character-count-container">
+            <app-character-count (withinLengthEmitter)="updateLengthConstraintBody($event)" [maxLength]="MAX_LENGTH_CONTENT" [content]="currentContent"></app-character-count>
+        </div>
+        <button (click)="post()">Post</button>
+    </form>
+</div>

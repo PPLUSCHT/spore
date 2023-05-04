@@ -1,0 +1,5 @@
+<form (ngSubmit)="onSubmit()">
+    <input type="text"  [formControl]="formText" name="inputTextBox">
+    <ng-content select="[submit]"></ng-content>
+    <button class="cancel" (click)="cancelButton()">cancel</button>
+</form>

@@ -1,0 +1,19 @@
+<div>
+    <div class="timeframe-container">
+        <button [ngClass]="this.currentTimeframe === 1 ? 'selected-button':'action-button'" (click)="updateTimeframe(1)">
+            <span class="button-text">Today</span>
+        </button>
+        <button [ngClass]="this.currentTimeframe === 2 ? 'selected-button':'action-button'" (click)="updateTimeframe(2)">
+            <span class="button-text">Week</span>
+        </button>
+        <button [ngClass]="this.currentTimeframe === 3 ? 'selected-button':'action-button'" (click)="updateTimeframe(3)">
+            <span class="button-text">Month</span>
+        </button>
+        <button [ngClass]="this.currentTimeframe === 4 ? 'selected-button':'action-button'" (click)="updateTimeframe(4)">
+            <span class="button-text">Year</span>
+        </button>
+        <button [ngClass]="this.currentTimeframe === 5 ? 'selected-button':'action-button'" (click)="updateTimeframe(5)">
+            <span class="button-text">All Time</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="comment_and_children">
+    <div class="comment">
+        <div class="user-info-bar">
+            <span class="poster-name">{{commentData.posterName}}</span>
+            <span> | </span>
+            <span class="time">{{commentData.timeString}}</span>
+        </div>
+        <div class="content-and-votes">
+            <ng-container *ngIf="!this.deleted">
+                <div class="votes">
+                    <span>{{commentData.voteTotal}}</span>
+                </div>
+            </ng-container>
+            <div class="content">{{commentData.content}}</div>
+        </div>
+        <ng-container *ngIf="this.childrenExist && !this.expand">
+            <span class="load-children" (click)="expandButton()">Load {{this.childrenCount}} Replies</span>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="expand">
+        <div class="children-and-vl-container">
+            <div class="vertical-line" (click)="expandButton()"></div>
+            <div class="children">
+                <ul *ngFor="let comment of this.childComments">
+                    <li>
+                        <ng-container *appCommentType="comment"></ng-container>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+</div>

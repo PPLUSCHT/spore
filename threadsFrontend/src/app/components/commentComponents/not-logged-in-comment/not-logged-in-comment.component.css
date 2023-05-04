@@ -1,0 +1,10 @@
+.votes{
+    background-color: var(--secondary-background);
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: var(--primary-background);
+}

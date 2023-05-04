@@ -1,0 +1,7 @@
+span{
+    font-size: 0.5em;
+}
+
+.overflow-message{
+    color: var(--active);
+}

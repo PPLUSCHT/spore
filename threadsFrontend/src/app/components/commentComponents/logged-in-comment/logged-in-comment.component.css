@@ -1,0 +1,54 @@
+.content-and-votes{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.content{
+    margin-left: 10px;
+}
+
+.poster-name{
+    font-weight: 800;
+}
+
+.time{
+    font-weight: 100;
+}
+
+.load-children{
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.load-children:hover{
+    text-decoration: underline;
+}
+
+.vertical-line{
+    background-color: rgb(78, 78, 78);
+    border-left: thick solid red;
+}
+
+.vertical-line:hover{
+    border-left: thick solid black;
+}
+
+.children-and-vl-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.children{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+ul{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    list-style-type: none;
+}

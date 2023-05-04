@@ -1,0 +1,122 @@
+.post-and-comments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondary-background);
+    box-sizing: border-box;
+    padding: 10px;
+    min-height: 100vh;
+}
+
+.user-post{
+    background-color: var(--primary-background);
+    display: block;
+    width: 80vw;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
+.user-info{
+    margin-left: 2.5%;
+    margin-top: 10px;
+    color: var(--light-text);
+    font-size: 0.8em;
+}
+
+.post-title{
+    margin-left: 2.5%;
+}
+
+h2{
+    margin-top: 10px;
+}
+
+.content-and-votes{
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.content{
+    margin-left: 10px;
+    padding-top: 5px;
+    width: calc(100% - 45px);
+}
+
+.upvote-container{
+    display: flex;
+    height: 60px;
+    width: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-background);
+    background-color: var(--secondary-background);
+    border-radius: 10%;
+} 
+
+.highlighted-upvote{
+    height: 40%;
+    transform: rotate(0.5turn);
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-upvote{
+    height: 40%;
+    transform: rotate(0.5turn);
+}
+
+.highlighted-downvote{
+    height: 40%;
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-downvote{
+    height: 40%;
+}
+
+.unhighlighted-upvote:hover{
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-downvote:hover{
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.button-container{
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+button{
+    border: none;
+    background-color: var(--primary-background);
+    border-radius: 10%;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    color: var(--light-text);
+    font-weight: 700;
+}
+
+button:hover{
+    color: var(--active);
+    background-color: transparent;
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.button-graphic{
+    padding-right: 3px;
+    height: 1em;
+}
+
+button-container{
+    padding-left: 0px;
+}

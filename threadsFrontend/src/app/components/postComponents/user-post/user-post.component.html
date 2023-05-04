@@ -1,0 +1,50 @@
+<div class="post-and-comments">
+<div class="user-post">
+    <div class="user-info">
+        <span>{{postData.posterName}} | {{postData.timeString}}</span>
+    </div>
+    <div class="post-title">
+        <h2>{{this.postData.title}}</h2>
+    </div>
+    <div class="content-and-votes">
+        <div class="upvote-container">
+            <img [ngClass]= "upvoteHighlight ? 
+            'highlighted-upvote' : 'unhighlighted-upvote'" 
+            (click) = "upvoteButton()" src="assets/svg/down.svg"/>
+            <div class= "voteTotal">
+                {{postData.voteTotal}}
+            </div>
+            <img [ngClass]= "downvoteHighlight ? 
+            'highlighted-downvote' : 'unhighlighted-downvote'" 
+            (click) = "downvoteButton()" src="assets/svg/down.svg"/>
+        </div>
+        <div class="content">
+            <ng-container *ngIf="this.editActive">
+                <app-post-edit [text]="this.postData.content" [postData]="this.postData" (deleteDialog)="editButton()">
+                </app-post-edit>
+            </ng-container>
+            <ng-container *ngIf="!this.editActive">
+                {{this.postData.content}}
+                <div *ngIf="!this.editActive && !this.replyOpen" class="button-container">
+                    <button class="reply" (click)="replyButton()">
+                        <img class="button-graphic" src="assets/svg/comment.svg" alt="">
+                        <span>Reply</span>
+                    </button>
+                    <button class="edit" (click)="editButton()">
+                        <img class="button-graphic" src="assets/svg/edit.svg" alt="">
+                        <span>Edit</span>
+                    </button>
+                    <button class="delete" (click)="deleteButton()">
+                        <img class="button-graphic" src="assets/svg/delete.svg" alt="">
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="reply-dialog" *ngIf="this.replyOpen">
+        <app-reply-box [postID]="this.postData.postID" (deleteDialog)="replyButton()"></app-reply-box>
+    </div>
+</div>
+<app-comment-container></app-comment-container>
+</div>

@@ -1,0 +1,14 @@
+.votes{
+    background-color: var(--secondary-background);
+    min-width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: var(--primary-background);
+}
+
+.content{
+    margin-bottom: 5px;
+}

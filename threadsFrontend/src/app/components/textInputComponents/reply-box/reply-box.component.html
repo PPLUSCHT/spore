@@ -1,0 +1,18 @@
+<form>
+    <div [ngClass]="commentReply?'reply-container':'post-reply'">
+        <textarea name="inputTextBox" [formControl]="formText" class="comment-area"></textarea>
+        <div class="buttons-and-length-container">
+            <div class="button-container">
+                <button type="submit" (click)="onSubmit()">
+                    <img class="button-graphic" src="assets/svg/submit.svg" alt="">
+                    <span class="button-text">Submit</span>
+                </button>
+                <button class="cancel" (click)="cancelButton()">
+                    <img class="button-graphic" src="assets/svg/cancel.svg" alt="">
+                    <span class="button-text">Cancel</span>
+                </button>
+            </div>
+            <app-character-count (withinLengthEmitter)="updateLengthConstraint($event)" [maxLength]="MAX_LENGTH" [content]="currentText"></app-character-count>
+        </div>
+    </div>
+</form>

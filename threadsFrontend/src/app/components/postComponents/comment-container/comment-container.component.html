@@ -1,0 +1,7 @@
+<div class="container">
+    <ul *ngFor="let comment of comments">
+        <li>
+            <ng-template *appCommentType="comment" (deleteComment)="removeChild($event)"></ng-template>
+        </li>
+    </ul>
+</div>

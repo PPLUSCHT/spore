@@ -1,0 +1,14 @@
+div{
+    display: flex;
+    padding: 15px;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--secondary-background);
+    min-height: 100vh;
+}
+
+span{
+    width: 80vw;
+    color: var(--primary-background);
+}

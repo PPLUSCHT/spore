@@ -1,0 +1,47 @@
+.post-card{
+    width: calc(100%-20px);
+    border: solid var(--light-text) 1px;
+    padding: 10px;
+    background-color: var(--primary-background);
+}
+
+h3{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.user-info{
+    margin-bottom: 3px;
+    color: var(--light-text);
+    font-size: 0.8em;
+}
+
+.content-and-votes{
+    display: flex;
+    flex-direction: row;
+    max-height: calc(11em + 5px);
+    line-height: 1.1em;
+    width: 100%;
+}
+
+.votes{
+    color: var(--primary-background);
+    background-color: var(--secondary-background);
+    border-radius: 50%;
+    min-width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.content{
+    text-overflow:clip;
+    white-space:break-spaces;
+    overflow: hidden; 
+    display: inline-block;
+    padding-top: 5px;
+}

@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Sample SAM Template for samAPI
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+
+Globals:
+  Function:
+    Timeout: 100
+
+    Tracing: Active
+  Api:
+    TracingEnabled: true
+    Cors:
+          AllowMethods: "'GET,POST,DELETE,PUT,PATCH'"
+          AllowHeaders: "'content-type'"
+          AllowOrigin: "'*'"
+          AllowCredentials: "'*'"
+Resources:
+  NetCodeWebAPIServerless:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      Architectures:
+        - arm64
+      Description: A simple example includes a .NET Core WebAPI App 
+      CodeUri: ./src/samAPI/
+      Handler: samAPI
+      Runtime: dotnet6
+      MemorySize: 1024
+      Events:
+        ProxyResource:
+          Type: HttpApi
+          Properties:
+            PayloadFormatVersion: '2.0'
+            Path: /{proxy+}
+            Method: ANY
+        RootResource:
+          PayloadFormatVersion: '2.0'
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: ANY
+Outputs:
+  WebEndpoint:
+    Description: API Gateway endpoint URL
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/"

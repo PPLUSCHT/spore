@@ -1,0 +1,27 @@
+<ng-container>
+    <div *ngIf="!postsExist && !this.loading" class="empty-cards">
+        There are no posts in this time window. Click new post to start a conversation!
+    </div>
+    <div *ngIf="!postsExist && this.loading" class="empty-cards">
+        <div *ngIf="this.loading" class="loading-container">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+    <div *ngIf="postsExist" class="post-card-container"
+        infiniteScroll
+        [infiniteScrollDistance]="1"
+        [infiniteScrollThrottle]="1000"
+        (scrolled)="onScroll()">
+        <ul *ngFor="let post of posts | async">
+            <li>
+                <app-post-card [postData]="post"></app-post-card>
+            </li>
+        </ul>
+        <div *ngIf="this.loading" class="loading-container">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div *ngIf="this.outOfPosts" class="out-of-posts-container">
+            No more posts for this time window
+        </div>
+    </div>
+</ng-container>

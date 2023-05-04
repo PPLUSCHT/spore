@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DAL/Comment/CommentQueryRepository.cs">
+    <Files>
+      <File FileName="Models/Comment.cs" />
+      <File FileName="Models/IntputDTO/CommentInputDTO.cs" />
+      <File FileName="DAL/User/UserCommandRepository.cs" />
+      <File FileName="DAL/Post/PostCommandRepository.cs" Line="1" Column="1" />
+      <File FileName="DAL/Comment/CommentQueryRepository.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ThreadScaffold" expanded="True">
+            <Node name="ThreadScaffold" expanded="True">
+              <Node name="DAL" expanded="True">
+                <Node name="Comment" expanded="True">
+                  <Node name="CommentQueryRepository.cs" selected="True" />
+                </Node>
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

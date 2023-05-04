@@ -1,0 +1,12 @@
+<div class="upvote-container">
+    <img [ngClass]="upvoteHighlight ? 
+    'highlighted-upvote' : 'unhighlighted-upvote'" 
+    (click) = "upvoteButton()" src="assets/svg/down.svg"/>
+    <div [ngClass]= "voteTotal >= 0 ? 
+    'upvoted-total' : 'downvoted-total'" >
+        {{voteTotal}}
+    </div>
+    <img [ngClass]= "downvoteHighlight ? 
+    'highlighted-downvote' : 'unhighlighted-downvote'" 
+    (click) = "downvoteButton()" src="assets/svg/down.svg"/>
+</div>
