@@ -8,6 +8,6 @@
         <div class="character-count-container">
             <app-character-count (withinLengthEmitter)="updateLengthConstraintBody($event)" [maxLength]="MAX_LENGTH_CONTENT" [content]="currentContent"></app-character-count>
         </div>
-        <button (click)="post()">Post</button>
+        <button [disabled]="loading" (click)="post()">Post</button>
     </form>
 </div>

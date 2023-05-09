@@ -1,9 +1,12 @@
 import { HttpErrorResponse } from "@angular/common/http"
-import { throwError } from "rxjs";
+import { of, throwError } from "rxjs";
 
 export const errorHandler = (error: HttpErrorResponse) =>{
     if(error.status === 0){
         console.error("Client Error:", error.message);
+    }
+    else if(error.status === 503){
+        return of()
     }
     else{
         console.error(

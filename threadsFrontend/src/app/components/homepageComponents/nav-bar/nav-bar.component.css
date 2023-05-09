@@ -9,6 +9,7 @@
     justify-content: space-between;
     color:var(--primary-background);
     z-index: 2;
+    font-size: 2em;
 }
 
 .logo{
@@ -23,6 +24,9 @@
     background-color: transparent;
     border: none;
     color: var(--primary-background);
+    font-size: 0.8em;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
 .action-button:hover{
@@ -30,16 +34,18 @@
 }
 
 .search-input{
-    width: 300px;
+    min-width: 30vw;
+    max-width: 30vw;
     background-color: var(--primary-background);
     margin-left: auto;
     margin-right: auto;
+    font-size: 0.6em;
 }
 
 .search-input:focus{
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-bottom: none;
+    margin-bottom: 0px;
 }
 
 .results-container{
@@ -47,12 +53,12 @@
     position: fixed;
     background-color: var(--primary-background);
     color: var(--primary-text);
-    width: 304px;
-    font-size: 0.7rem;
-    border: 1.2px solid var(--active);
+    width: calc(30vw + 4px);
+    font-size: 0.6em;
+    border: 2px solid var(--active);
     border-top: none;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     display:flex;
     flex-direction: column;
 }
@@ -60,6 +66,8 @@
 ul{
     list-style-type: none;
     padding-inline-start: 2px;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
 }
 
 
@@ -72,7 +80,7 @@ li:hover{
 }
 
 .see-results{
-    font-size: 0.7rem;
+    font-size: 0.85em;
     margin-left: auto;
     margin-right: 2px;
 }

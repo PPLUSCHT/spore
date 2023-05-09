@@ -5,7 +5,7 @@ import { ReceivedComment } from 'src/app/interfaces/recievedObjects/ReceivedComm
 import { CommentRequest } from 'src/app/interfaces/requestObjects/CommentRequest';
 import { PostDataStorageService } from 'src/app/services/post-data-storage/post-data-storage.service';
 import { environment } from 'src/environments/environment';
-import { debounceTime } from 'rxjs';
+import { Subject, debounceTime, exhaustMap } from 'rxjs';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 
 @Component({
@@ -24,6 +24,8 @@ export class CommentEditComponent extends AbstractTextBoxComponent implements On
   withinLength:boolean = true;
   MAX_LENGTH = environment.COMMENT_LENGTH;
 
+  submitTrigger = new Subject<CommentRequest>();
+
   constructor(private service:CommentService, 
               postDataStorage: PostDataStorageService,
               private auth: AuthorizationService){
@@ -37,16 +39,21 @@ export class CommentEditComponent extends AbstractTextBoxComponent implements On
     this.formText.valueChanges
         .pipe(debounceTime(200))
         .subscribe((text) => this.currentText = text)
+    this.submitTrigger.pipe(
+        exhaustMap((commentRequest) => this.service.patchComment(commentRequest, this.commentData.commentID))
+    )
 }
 
 
   private updateView(text:string){
+    this.updateLoading()
     this.commentData.content = text
     this.commentDataChange.emit(this.commentData)
     this.deleteDialog.emit()
   }
 
   public override onSubmit(){
+    super.onSubmit()
     if(!this.validateEdit()){
       return
     }
@@ -57,11 +64,7 @@ export class CommentEditComponent extends AbstractTextBoxComponent implements On
       content: this.formText.value
     }
 
-    this.service.patchComment(comment, this.commentData.commentID)
-                .subscribe({
-                  next: (rec) => {this.updateView(rec)},
-                  error: (err) => {alert(`Something went wrong with updating the comment: ${err}`)}
-                })
+    this.submitTrigger.next(comment)
   }
 
   public updateLengthConstraint(b:boolean) : void{

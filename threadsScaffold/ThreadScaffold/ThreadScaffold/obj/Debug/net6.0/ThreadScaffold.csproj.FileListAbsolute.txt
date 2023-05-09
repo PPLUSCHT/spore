@@ -10,3 +10,17 @@
 /Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ref/ThreadScaffold.dll
 /Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.pdb
 /Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/refint/ThreadScaffold.dll
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/bin/Debug/net6.0/ThreadScaffold.deps.json
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/bin/Debug/net6.0/ThreadScaffold.runtimeconfig.json
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/bin/Debug/net6.0/ThreadScaffold.dll
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/bin/Debug/net6.0/ThreadScaffold.pdb
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.csproj.AssemblyReference.cache
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.AssemblyInfoInputs.cache
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.AssemblyInfo.cs
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.csproj.CoreCompileInputs.cache
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.dll
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/refint/ThreadScaffold.dll
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.pdb
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ThreadScaffold.genruntimeconfig.cache
+/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/Debug/net6.0/ref/ThreadScaffold.dll

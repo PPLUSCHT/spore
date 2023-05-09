@@ -3,11 +3,12 @@
     flex-direction: row;
     margin: 10px;
     width: calc(100% - 10px);
+    font-size: 1.3em;
 }
 
 .user-info-bar{
     color: var(--light-text);
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .content{
@@ -29,7 +30,7 @@
 }
 
 .load-children{
-    font-size: 0.55rem;
+    font-size: 0.8rem;
     font-weight: 800;
 }
 

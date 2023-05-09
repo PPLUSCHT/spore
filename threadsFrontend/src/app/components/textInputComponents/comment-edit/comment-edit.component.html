@@ -6,7 +6,7 @@
     </textarea>
     <div class="buttons-and-length-container">
         <div class="button-container">
-            <button type="submit" (click)="onSubmit()">
+            <button [disabled]="this.loading" type="submit" (click)="onSubmit()">
                 <img class="button-graphic" src="assets/svg/submit.svg" alt="">
                 <span class="button-text">Submit</span>
             </button>

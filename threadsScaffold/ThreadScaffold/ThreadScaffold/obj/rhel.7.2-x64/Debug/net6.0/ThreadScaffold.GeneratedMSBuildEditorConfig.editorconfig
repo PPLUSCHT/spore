@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ThreadScaffold
-build_property.ProjectDir = /Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/
+build_property.ProjectDir = /Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/

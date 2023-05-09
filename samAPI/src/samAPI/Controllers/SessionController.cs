@@ -15,7 +15,7 @@ public class SessionController:ControllerBase
     }
 
     [HttpPost(Name = "Login")]
-    public async Task<ActionResult<string>> IssueJWTAsync(UserInputDTO userInputDTO)
+    public async Task<ActionResult<string>> IssueJWTAsync([FromBody] UserInputDTO userInputDTO)
     {
         string? jwt = await _userCommandRepository.Login(userInputDTO.UserName, userInputDTO.Password);
         if(jwt == null)

@@ -24,7 +24,7 @@ public class PostsController : ControllerBase
     }
 
     [HttpPost(Name = "PostPost")]
-    public async Task<ActionResult<PostOutputDTO>> PostPostAsync(PostInputDTO PostInputDTO)
+    public async Task<ActionResult<PostOutputDTO>> PostPostAsync([FromBody] PostInputDTO PostInputDTO)
     {
         IDHandling.MatchID(Request, PostInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -76,7 +76,7 @@ public class PostsController : ControllerBase
     }
 
     [HttpPatch("{id}")]
-    public async Task<ActionResult<string>> UpdatePost(PostInputDTO postInputDTO, int id)
+    public async Task<ActionResult<string>> UpdatePost([FromBody] PostInputDTO postInputDTO, int id)
     {
         IDHandling.MatchID(Request, postInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -128,7 +128,7 @@ public class PostsController : ControllerBase
     }
 
     [HttpPost("{id}/Votes")]
-    public async Task<ActionResult<PostVoteOutputDTO>> PostVote(PostVoteInputDTO VoteInputDTO)
+    public async Task<ActionResult<PostVoteOutputDTO>> PostVote([FromBody] PostVoteInputDTO VoteInputDTO)
     {
         IDHandling.MatchID(Request, VoteInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -152,7 +152,7 @@ public class PostsController : ControllerBase
     }
 
     [HttpPatch("{id}/Votes")]
-    public async Task<ActionResult<PostOutputDTO>> UpdateVote(PostVoteInputDTO voteInputDTO)
+    public async Task<ActionResult<PostOutputDTO>> UpdateVote([FromBody] PostVoteInputDTO voteInputDTO)
     {
         IDHandling.MatchID(Request, voteInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -170,7 +170,7 @@ public class PostsController : ControllerBase
 
 
     [HttpDelete("{id}/Votes")]
-    public async Task<ActionResult<PostOutputDTO>> DeleteVote(PostVoteInputDTO vote)
+    public async Task<ActionResult<PostOutputDTO>> DeleteVote([FromBody] PostVoteInputDTO vote)
     {
         IDHandling.MatchID(Request, vote.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)

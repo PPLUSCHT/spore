@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj": {}
+    "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj": {}
   },
   "projects": {
-    "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj": {
+    "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
+        "projectUniqueName": "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
         "projectName": "ThreadScaffold",
-        "projectPath": "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
+        "projectPath": "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
         "packagesPath": "/Users/pluscht/.nuget/packages/",
-        "outputPath": "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/",
+        "outputPath": "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/pluscht/.nuget/NuGet/NuGet.Config"
@@ -72,6 +72,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-arm64": {
+          "#import": []
         }
       }
     }

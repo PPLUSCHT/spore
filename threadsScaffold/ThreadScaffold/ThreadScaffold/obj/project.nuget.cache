@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gzWri0QOkXx30mY7iBWhvevGwlOJFC0Hfvf5IFt42sn7Fv6cW39PcRKZ1bR3Y0XjOntQZu2JxAjqgWEEhlP5sA==",
+  "dgSpecHash": "tHYyade/9k7nYfhIpxx893gpNjT6H5EThqgMgm3ZiAXak2XKzpXeDLf1DbB4fuFkDn82O76mIeFwMlVIrgvGOw==",
   "success": true,
-  "projectFilePath": "/Users/pluscht/Desktop/PortfolioProjects/threadApp/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
+  "projectFilePath": "/Users/pluscht/Desktop/spore/threadsScaffold/ThreadScaffold/ThreadScaffold/ThreadScaffold.csproj",
   "expectedPackageFiles": [
     "/Users/pluscht/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/microsoft.entityframeworkcore/7.0.5/microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
@@ -26,7 +26,12 @@
     "/Users/pluscht/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
+    "/Users/pluscht/.nuget/packages/runtime.any.system.runtime/4.3.0/runtime.any.system.runtime.4.3.0.nupkg.sha512",
+    "/Users/pluscht/.nuget/packages/runtime.any.system.text.encoding/4.3.0/runtime.any.system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/pluscht/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
+    "/Users/pluscht/.nuget/packages/runtime.unix.system.private.uri/4.3.0/runtime.unix.system.private.uri.4.3.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/system.identitymodel.tokens.jwt/6.29.0/system.identitymodel.tokens.jwt.6.29.0.nupkg.sha512",
+    "/Users/pluscht/.nuget/packages/system.private.uri/4.3.0/system.private.uri.4.3.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/pluscht/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",

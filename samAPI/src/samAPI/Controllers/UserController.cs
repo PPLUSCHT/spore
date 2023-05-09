@@ -32,7 +32,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost(Name = "PostUser")]
-    public async Task<ActionResult<UserOutputDTO>> PostUserAsync(UserInputDTO userInputDTO)
+    public async Task<ActionResult<UserOutputDTO>> PostUserAsync([FromBody] UserInputDTO userInputDTO)
     {
         User? user = await _userCommandRepository.CreateUser(userInputDTO);
         if(user == null)

@@ -14,12 +14,18 @@ export class AbstractTextBoxComponent implements OnInit{
 
   @Output() deleteDialog = new EventEmitter<boolean>();
   formText:FormControl = new FormControl(this.text)
+  loading: boolean = false;
 
   ngOnInit(): void {
     this.formText.setValue(this.text)
   }
   
   onSubmit(): void {
+    this.loading = true
+  }
+
+  updateLoading(): void {
+    this.loading = false
   }
 
   public cancelButton(): void{

@@ -24,7 +24,7 @@ public class CommentsController : ControllerBase
     }
 
     [HttpPost(Name = "PostComment")]
-    public async Task<ActionResult<CommentOutputDTO>> PostComment(CommentInputDTO commentInputDTO)
+    public async Task<ActionResult<CommentOutputDTO>> PostComment([FromBody] CommentInputDTO commentInputDTO)
     {
         IDHandling.MatchID(Request, commentInputDTO.UserID, _jwtService, out int? errorCode);
         if(errorCode != null)
@@ -61,7 +61,7 @@ public class CommentsController : ControllerBase
     }
 
     [HttpPatch("{commentID}", Name = "UpdateComment")]
-    public async Task<ActionResult<string>> UpdateComment(CommentInputDTO inputDTO, int commentID)
+    public async Task<ActionResult<string>> UpdateComment([FromBody] CommentInputDTO inputDTO, int commentID)
     {
         IDHandling.MatchID(Request, inputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -108,7 +108,7 @@ public class CommentsController : ControllerBase
     }
 
     [HttpPost("{CommentID}/Votes", Name = "PostCommentVote")]
-    public async Task<ActionResult<CommentVoteOutputDTO>> PostCommentVote(CommentVoteInputDTO VoteInputDTO)
+    public async Task<ActionResult<CommentVoteOutputDTO>> PostCommentVote([FromBody] CommentVoteInputDTO VoteInputDTO)
     {
         IDHandling.MatchID(Request, VoteInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -132,7 +132,7 @@ public class CommentsController : ControllerBase
     }
 
     [HttpPatch("{CommentID}/Votes", Name = "UpdateCommentVote")]
-    public async Task<ActionResult<PostOutputDTO>> UpdateVote(CommentVoteInputDTO voteInputDTO)
+    public async Task<ActionResult<PostOutputDTO>> UpdateVote([FromBody] CommentVoteInputDTO voteInputDTO)
     {
         IDHandling.MatchID(Request, voteInputDTO.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)
@@ -151,7 +151,7 @@ public class CommentsController : ControllerBase
 
 
     [HttpDelete("{CommentID}/Votes", Name = "DeleteCommentVote")]
-    public async Task<ActionResult<CommentOutputDTO>> DeleteVote(CommentVoteInputDTO vote)
+    public async Task<ActionResult<CommentOutputDTO>> DeleteVote([FromBody] CommentVoteInputDTO vote)
     {
         IDHandling.MatchID(Request, vote.UserID, _jwtService, out int? errorCode);
         if (errorCode != null)

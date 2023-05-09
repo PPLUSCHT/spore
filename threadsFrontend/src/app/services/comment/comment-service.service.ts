@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, debounceTime, map } from 'rxjs';
 import { ReceivedComment } from 'src/app/interfaces/recievedObjects/ReceivedComment';
 import { CommentRequest } from 'src/app/interfaces/requestObjects/CommentRequest';
 import { routeCreator } from '../routeCreator';
@@ -19,7 +19,8 @@ export class CommentService{
 
   public postComment(commentRequest: CommentRequest): Observable<ReceivedComment>{
     return this.http.post<ReceivedComment>(routeCreator("Comments"), commentRequest)
-                    .pipe(map(x => {
+                    .pipe(
+                    map(x => {
                       if(Object(x) instanceof HttpErrorResponse){
                         throw x;
                       }
@@ -44,7 +45,8 @@ export class CommentService{
 
   public deleteComment(commentID: number): Observable<number>{
     return this.http.delete<number>(routeCreator(`Comments/${commentID}`))
-                    .pipe(map(x => {
+                    .pipe(
+                    map(x => {
                       if(Object(x) instanceof HttpErrorResponse){
                         throw x;
                       }

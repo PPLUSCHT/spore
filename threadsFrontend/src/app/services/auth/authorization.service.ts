@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { BehaviorSubject, Observable, catchError, map, tap, timer } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, debounceTime, map, tap, timer } from 'rxjs';
 import { UserRequest } from 'src/app/interfaces/requestObjects/UserRequest';
 import { errorHandler } from '../errorHandler';
 import { routeCreator } from '../routeCreator';
@@ -24,7 +24,8 @@ export class AuthorizationService{
 
   public loginRequest(userInfo:UserRequest):Observable<string>{
     return this.http.post<string>(routeCreator("Session"), userInfo, {responseType: 'text' as 'json'})
-        .pipe(map(x => {
+        .pipe(
+              map(x => {
                         if (Object(x) instanceof HttpErrorResponse) {
                           throw x;
                         }

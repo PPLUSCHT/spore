@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 Task<string> dbSecretTask = Secrets.GetDBSecret();
 Task<string> jwtSecretTask = Secrets.GetJWTSecret();
-List<Task> secrets = new List<Task>{dbSecretTask, jwtSecretTask}; 
+List<Task> secrets = new List<Task>{dbSecretTask, jwtSecretTask};
 
 builder.Services.AddSingleton<IJWTservice>(new JWTConfig("hello"));
 builder.Services.AddTransient<IPasswordService, PasswordService>();
@@ -31,7 +31,7 @@ builder.Services.AddCors(options =>
             options.AddPolicy(name: MyAllowSpecificOrigins,
                               builder =>
                               {
-                                  builder.WithOrigins("http://localhost:4200");
+                                  builder.AllowAnyOrigin();
                                   builder.AllowAnyHeader();
                                   builder.AllowAnyMethod();
                               });
@@ -51,7 +51,7 @@ string region = Environment.GetEnvironmentVariable("AWS_REGION") ?? RegionEndpoi
 builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 while (secrets.Any()){
-        var task = await Task.WhenAny(secrets);   
+        var task = await Task.WhenAny(secrets);
         if(task == dbSecretTask){
                 string connectionString = await dbSecretTask;
                 builder.Services.AddDbContext<ThreadsAPIContext>(options => options.UseNpgsql(connectionString));
@@ -61,7 +61,7 @@ while (secrets.Any()){
                 string key = await jwtSecretTask;
                 builder.Services.AddSingleton<IJWTservice>(new JWTConfig(key));
                 secrets.Remove(jwtSecretTask);
-        }          
+        }
 }
 
 // builder.Services.AddEndpointsApiExplorer();

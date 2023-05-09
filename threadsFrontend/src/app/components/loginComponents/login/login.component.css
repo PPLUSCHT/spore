@@ -12,19 +12,23 @@
     padding-bottom: 15px;
     border-radius: 10px;
 
-    width: 235px;
-    height: 77px;
+    width: 330px;
+    height: 92px;
 
     display: grid;
-    grid-template-columns: 65px 75px 75px;
+    grid-template-columns: 90px 110px 110px;
     gap: 10px;
-    grid-template-rows: repeat(3, 1.2em);
+    grid-template-rows: repeat(3, 1.6em);
 
     background-color: var(--primary-background);
 }
 
 input{
-    font-size: 0.7em;
+    font-size: 1em;
+}
+
+label{
+    font-size: 1.3em;
 }
 
 .username-input{

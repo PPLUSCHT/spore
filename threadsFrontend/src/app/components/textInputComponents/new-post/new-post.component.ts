@@ -5,7 +5,7 @@ import { PostRequest } from 'src/app/interfaces/requestObjects/PostRequest';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { debounceTime } from 'rxjs';
+import { Subject, debounceTime, exhaustMap } from 'rxjs';
 
 @Component({
   selector: 'app-new-post',
@@ -30,22 +30,36 @@ export class NewPostComponent implements OnInit{
   withinLengthContent:boolean = true;
   MAX_LENGTH_CONTENT = environment.POST_LENGTH;
 
+  loading:boolean = false
+  submitTrigger = new Subject<PostRequest>()
+
   constructor(private service:PostDataService, private auth:AuthorizationService, private router:Router){
   }
 
   ngOnInit(): void {
     this.currentTitle = "Title"
     this.currentContent = "Body"
+
     this.form.controls.body.valueChanges
         .pipe(debounceTime(200))
         .subscribe((text) => 
           this.currentContent = text!
         )
+
     this.form.controls.title.valueChanges
         .pipe(debounceTime(200))
         .subscribe((text) => 
           this.currentTitle = text!
         )
+
+    this.submitTrigger.pipe(
+      exhaustMap((post) => this.service.postPost(post))
+      )
+      .subscribe({
+        next: (post) => {this.router.navigateByUrl(`Posts/${post.postID}`)},
+        error: (err) => {alert(err); this.loading = false}
+    })
+
   }
   
   public post(): void{
@@ -57,9 +71,8 @@ export class NewPostComponent implements OnInit{
       content: this.form.value.body!,
       title: this.form.value.title!
     }
-    this.service.postPost(postRequest).subscribe({
-      next: (post) => {this.router.navigateByUrl(`Posts/${post.postID}`)}
-    })
+    this.loading = true
+    this.submitTrigger.next(postRequest)
   }
 
   public cancelButton(): void {

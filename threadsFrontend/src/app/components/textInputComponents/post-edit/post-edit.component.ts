@@ -6,7 +6,7 @@ import { ReceivedPost } from 'src/app/interfaces/recievedObjects/ReceivedPost';
 import { PostDataStorageService } from 'src/app/services/post-data-storage/post-data-storage.service';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 import { environment } from 'src/environments/environment';
-import { debounceTime } from 'rxjs';
+import { Subject, debounceTime, exhaustMap } from 'rxjs';
 
 @Component({
   selector: 'app-post-edit',
@@ -19,6 +19,8 @@ export class PostEditComponent extends AbstractTextBoxComponent implements OnIni
 
   currentText!: string;
   withinLength:boolean = true;
+  submitTrigger = new Subject<PostRequest>()
+
   MAX_LENGTH = environment.POST_LENGTH;
 
   constructor(private service: PostDataService, 
@@ -34,9 +36,16 @@ export class PostEditComponent extends AbstractTextBoxComponent implements OnIni
       this.formText.valueChanges
           .pipe(debounceTime(200))
           .subscribe((text) => this.currentText = text)
+      this.submitTrigger
+          .pipe(exhaustMap((postRequest) => this.service.patchPost(postRequest, this.postData.postID)))
+          .subscribe({
+            next: (rec) => {this.updateView(rec)},
+            error: (err) => {alert(`Something went wrong with updating the post: ${err}`)}
+          })
   }
 
   private updateView(text:string): void{
+    this.updateLoading()
     this.postData.content = text
     this.postDataStorage.setData(this.postData)
     this.deleteDialog.emit()
@@ -57,11 +66,8 @@ export class PostEditComponent extends AbstractTextBoxComponent implements OnIni
       content: this.formText.value,
       title: this.postData.title
     }
-    this.service.patchPost(post, this.postData.postID)
-                .subscribe({
-                  next: (rec) => {this.updateView(rec)},
-                  error: (err) => {alert(`Something went wrong with updating the post: ${err}`)}
-                })
+    
+    this.submitTrigger.next(post)
   }
 
   public validateEdit() : boolean{

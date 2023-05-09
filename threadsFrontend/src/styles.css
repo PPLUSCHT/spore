@@ -25,22 +25,22 @@ button{
 
 input{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border: 1.2px solid var(--light-text);
-    border-radius: 3px;
+    border: 2px solid var(--light-text);
+    border-radius: 6px;
 }
 
 input:focus {
     outline: none;
-    border: 1.2px solid var(--active);
+    border: 2px solid var(--active);
 }
 
 textarea{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border: 1.2px solid var(--light-text);
-    border-radius: 3px;
+    border: 2px solid var(--light-text);
+    border-radius: 6px;
 }
 
 textarea:focus {
     outline: none;
-    border: 1.2px solid var(--active);
+    border: 2px solid var(--active);
 }

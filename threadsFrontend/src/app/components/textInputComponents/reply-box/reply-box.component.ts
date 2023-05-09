@@ -6,7 +6,7 @@ import { CommentService } from 'src/app/services/comment/comment-service.service
 import { AbstractTextBoxComponent } from '../abstract-text-box/abstract-text-box.component';
 import { PostDataStorageService } from 'src/app/services/post-data-storage/post-data-storage.service';
 import { environment } from 'src/environments/environment';
-import { debounceTime } from 'rxjs';
+import { Subject, debounceTime, exhaustMap } from 'rxjs';
 
 @Component({
   selector: 'app-reply-box',
@@ -23,6 +23,7 @@ export class ReplyBoxComponent extends AbstractTextBoxComponent implements OnIni
   currentText!: string;
   commentReply!:boolean;
   withinLength:boolean = true;
+  submitTrigger = new Subject<CommentRequest>()
   MAX_LENGTH = environment.COMMENT_LENGTH;
 
   constructor(private service:PostDataStorageService, 
@@ -40,9 +41,24 @@ export class ReplyBoxComponent extends AbstractTextBoxComponent implements OnIni
         .subscribe((text) => 
         this.currentText = text
       )
+      this.submitTrigger
+          .pipe(exhaustMap((commentRequest) => 
+          {
+            if(this.commentID == null){
+              return this.service.addComment(commentRequest)
+            }
+            else{
+              return this.commentService.postComment(commentRequest)
+            }
+          }))
+          .subscribe({
+            next: (comment) => {this.outputommment(comment), this.closeDialog()},
+            error: (err) => {alert(`Posting Comment Failed.${err}`)}
+          })
   }
 
   override onSubmit(): void{
+    this.updateLoading()
     if(!this.validateComment()){
       return
     }
@@ -61,12 +77,7 @@ export class ReplyBoxComponent extends AbstractTextBoxComponent implements OnIni
       postID: this.postID,
       content: this.formText.value
     }
-
-    this.service.addComment(comment)
-                .subscribe({
-                  next: () => this.closeDialog(),
-                  error: (err) => {alert(`Posting Comment Failed.${err}`)}
-                })
+    this.submitTrigger.next(comment)
   }
 
   private commentResponse(): void{
@@ -78,11 +89,7 @@ export class ReplyBoxComponent extends AbstractTextBoxComponent implements OnIni
       content: this.formText.value
     }
 
-    this.commentService.postComment(comment)
-                .subscribe({
-                  next: (comment) => {this.outputommment(comment), this.closeDialog()},
-                  error: (err) => {alert(`Posting Comment Failed.${err}`)}
-                })
+    this.submitTrigger.next(comment)
   }
 
   public updateLengthConstraint(b:boolean): void{

@@ -14,14 +14,14 @@
     width: 80vw;
     padding-bottom: 10px;
     padding-top: 5px;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .user-info{
     margin-left: 2.5%;
     margin-top: 10px;
     color: var(--light-text);
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .post-title{
@@ -30,6 +30,7 @@
 
 h2{
     margin-top: 10px;
+    font-size: 1.8em;
 }
 
 .content-and-votes{
@@ -38,6 +39,7 @@ h2{
     flex-direction: row;
     margin-left: 2.5%;
     margin-right: 2.5%;
+    font-size: 1.3em;
 }
 
 .content{

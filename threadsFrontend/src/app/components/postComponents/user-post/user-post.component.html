@@ -34,7 +34,7 @@
                         <img class="button-graphic" src="assets/svg/edit.svg" alt="">
                         <span>Edit</span>
                     </button>
-                    <button class="delete" (click)="deleteButton()">
+                    <button [disabled]="this.deleteLoading" class="delete" (click)="deleteButton()">
                         <img class="button-graphic" src="assets/svg/delete.svg" alt="">
                         <span>Delete</span>
                     </button>
