@@ -10,5 +10,5 @@ export const errorHandler = (error: HttpErrorResponse) =>{
             "Backend Error", error.message
         );
     }
-    return throwError(() => new Error(`Something went wrong: ${error.message}`));
+    return throwError(() => new Error(`Something went wrong: ${error.status}`));
 }

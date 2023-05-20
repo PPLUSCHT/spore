@@ -1,7 +1,7 @@
 import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { debounceTime, map, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, mergeMap, switchMap } from 'rxjs';
 import { PostTitleDTO } from 'src/app/interfaces/recievedObjects/PostTitleDTO';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 import { PostDataService } from 'src/app/services/post/post-data-service.service';
@@ -33,6 +33,7 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
     this.searchForm.valueChanges
         .pipe(
           debounceTime(500),
+          distinctUntilChanged(),
           switchMap((str) =>
             {
               str = str ? str : ""          

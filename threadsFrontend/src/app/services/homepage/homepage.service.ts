@@ -6,6 +6,7 @@ import { routeCreator } from '../routeCreator';
 import { addZeroVotePost } from '../addZeroVote';
 import { errorHandler } from '../errorHandler';
 import { convertPostTime } from '../localTime';
+import { Timeframe, timeframeToString } from 'src/app/enums/Timeframe';
 
 @Injectable({
   providedIn: 'root'
@@ -79,5 +80,16 @@ export class HomepageService {
                     )
   }
 
-
+  public getTopPeriod(page: number, timeframe: Timeframe): Observable<Array<ReceivedPost>>{
+    return this.http.get<Array<ReceivedPost>>(routeCreator(`Homepage/${timeframeToString(timeframe)}/${page}`))
+                    .pipe(map(x => {
+                      if (x instanceof HttpErrorResponse) {
+                        throw x;
+                      }
+                      return x.map(post => addZeroVotePost(post));
+                      }),
+                      map((x) => {return x.map((post) => convertPostTime(post))}),
+                      catchError(errorHandler)
+                    )
+  }
 }

@@ -41,7 +41,7 @@ export class CommentEditComponent extends AbstractTextBoxComponent implements On
         .subscribe((text) => this.currentText = text)
     this.submitTrigger.pipe(
         exhaustMap((commentRequest) => this.service.patchComment(commentRequest, this.commentData.commentID))
-    )
+    ).subscribe((str) => this.updateView(str))
 }
 
 
