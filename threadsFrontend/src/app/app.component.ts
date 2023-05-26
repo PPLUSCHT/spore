@@ -8,7 +8,7 @@ import { PreviousUrlService } from './services/previous-url/previous-url.service
 })
 export class AppComponent {
   
-  title = 'threadsFrontend';
+  title = 'Spore';
   
   constructor(private previousUrl: PreviousUrlService){
     previousUrl.begin()
