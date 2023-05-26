@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PreviousUrlService } from './services/previous-url/previous-url.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,8 @@ import { PreviousUrlService } from './services/previous-url/previous-url.service
 })
 export class AppComponent {
   
-  title = 'Spore';
-  
-  constructor(private previousUrl: PreviousUrlService){
+  constructor(private previousUrl: PreviousUrlService, private title: Title){
     previousUrl.begin()
+    title.setTitle("Spore")
   }
 }
