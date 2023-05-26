@@ -29,6 +29,7 @@ export class PostCardContainerComponent implements OnInit, OnChanges {
     this.loadTrigger.pipe(
       exhaustMap(() => this.homepageService.getTopPeriod(this.page, this.timeframe))
     ).subscribe((p) => this.updatePosts(p))
+    this.loadPage(0)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,7 +39,6 @@ export class PostCardContainerComponent implements OnInit, OnChanges {
   }
 
   public loadPage(page:number): void {
-
     this.loading = true
     this.outOfPosts = false
     this.loadTrigger.next()
