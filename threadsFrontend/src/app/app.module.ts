@@ -35,6 +35,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CharacterCountComponent } from './components/textInputComponents/character-count/character-count.component';
 import { SearchResultsComponent } from './components/searchComponents/search-results/search-results/search-results.component';
 import { UnfoundPageComponent } from './components/Unfound/unfound-page/unfound-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { UnfoundPageComponent } from './components/Unfound/unfound-page/unfound-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    NoopAnimationsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptService, multi: true}],
   bootstrap: [AppComponent]

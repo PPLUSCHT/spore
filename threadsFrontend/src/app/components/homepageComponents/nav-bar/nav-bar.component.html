@@ -2,20 +2,52 @@
     <div class="logo">
         Spore
     </div>
-    <div class="search-container">
-        <input type="text" class="search-input" #searchInput [formControl]="searchForm"  
-                (focus)="selectionChange()" (blur)="selectionChange()" 
-                (keydown.enter)="searchInput.blur(); routeToSearch()">
-        <div class="results-container" *ngIf="this.searchResults || this.mouseFocus != 0 || this.searchFocus">
-            <ul *ngFor="let result of results">
-                <li (click)="routeToPost(result.postID)" (mouseover)="this.mouseFocus = result.postID" (mouseleave)="this.mouseFocus = 0">
-                    <span class="result">{{result.title}}</span>
-                </li>
-            </ul>
-            <span class="see-results" (click)="routeToSearch()" (mouseover)="this.searchFocus = true" (mouseleave)="this.searchFocus = false">Search</span>
+    <ng-container *ngIf="!phone">
+        <div class="search-container">
+            <input type="text" class="search-input" #searchInput [formControl]="searchForm"  
+                    (focus)="selectionChange()" (blur)="selectionChange()" 
+                    (keydown.enter)="searchInput.blur(); routeToSearch()">
+            <div class="results-container" *ngIf="this.searchResults || this.mouseFocus != 0 || this.searchFocus">
+                <ul *ngFor="let result of results">
+                    <li (click)="routeToPost(result.postID)" (mouseover)="this.mouseFocus = result.postID" (mouseleave)="this.mouseFocus = 0">
+                        <span class="result">{{result.title}}</span>
+                    </li>
+                </ul>
+                <span class="see-results" (click)="routeToSearch()" (mouseover)="this.searchFocus = true" (mouseleave)="this.searchFocus = false">Search</span>
+            </div>
         </div>
-    </div>
-    <div class="actions">
+        <div class="actions">
+            <button class="action-button" (click)="this.homeButton()">
+                <span>Home</span>
+            </button>
+            <ng-container *ngIf="loggedIn">
+                <button class="action-button" (click)="this.newPostButton()">
+                    <span>New Post</span>
+                </button>
+                <button class="action-button" (click)="this.logoutButton()">
+                    <span>Logout</span>
+                </button>
+            </ng-container>
+            <ng-container *ngIf="!loggedIn">
+                <button class="action-button" (click)="this.loginButton()">
+                    <span>Login</span>
+                </button>
+                <button class="action-button" (click)="this.signUpButton()">
+                    <span>Sign up</span>
+                </button>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="phone">
+        <button class="hamburger-button" (click)="this.expandMobile()">
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+        </button>
+    </ng-container>
+</div>
+<div class="actions-mobile" *ngIf="this.mobileExpansion">
+    <div class="actions-row">
         <button class="action-button" (click)="this.homeButton()">
             <span>Home</span>
         </button>
@@ -35,5 +67,18 @@
                 <span>Sign up</span>
             </button>
         </ng-container>
+    </div>
+    <div class="search-container-mobile">
+        <input type="text" class="search-input-mobile" #searchInput [formControl]="searchForm"  
+                (focus)="selectionChange()" (blur)="selectionChange()" 
+                (keydown.enter)="searchInput.blur(); routeToSearch()">
+        <div class="results-container-mobile" *ngIf="this.searchResults || this.mouseFocus != 0 || this.searchFocus">
+            <ul *ngFor="let result of results">
+                <li (click)="routeToPost(result.postID)" (mouseover)="this.mouseFocus = result.postID" (mouseleave)="this.mouseFocus = 0">
+                    <span class="result">{{result.title}}</span>
+                </li>
+            </ul>
+            <span class="see-results" (click)="routeToSearch()" (mouseover)="this.searchFocus = true" (mouseleave)="this.searchFocus = false">Search</span>
+        </div>
     </div>
 </div>

@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, mergeMap, switchMap } from 'rxjs';
 import { PostTitleDTO } from 'src/app/interfaces/recievedObjects/PostTitleDTO';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 import { PostDataService } from 'src/app/services/post/post-data-service.service';
-
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,8 +22,14 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
   mouseFocus = 0
   searchFocus = false
   clicked = false
+  
+  phone = false
+  mobileExpansion = false
 
-  constructor(private auth: AuthorizationService, private router:Router, private postService: PostDataService) { 
+  constructor(private auth: AuthorizationService, 
+              private router:Router, 
+              private postService: PostDataService,
+              private layout: LayoutService) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     }
@@ -42,6 +48,7 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
           )
         )
         .subscribe((postTitles) => this.results = postTitles)
+    this.phone = this.layout.getPhoneState()
   }
 
   ngAfterContentChecked(): void {
@@ -58,23 +65,28 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
 
   public loginButton(): void {  
     this.router.navigateByUrl("Login")
+    this.mobileExpansion = false
   }
 
   public logoutButton(): void {
     this.auth.logout()
     this.router.navigateByUrl(this.router.url)
+    this.mobileExpansion = false
   }
 
   public homeButton(): void{
     this.router.navigateByUrl("")
+    this.mobileExpansion = false
   }
 
   public newPostButton(): void{
     this.router.navigateByUrl("Posts/Draft")
+    this.mobileExpansion = false
   }
 
   public signUpButton(): void{
     this.router.navigateByUrl("Signup")
+    this.mobileExpansion = false
   }
 
   public getSuggestions(): void{
@@ -101,6 +113,11 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
     this.searchResults = false
     this.searchFocus = false
     this.router.navigateByUrl(`Search?query=${this.searchForm.value ? this.searchForm.value : ""}&pageNumber=0`)
+    this.mobileExpansion = false
+  }
+
+  public expandMobile(): void{
+    this.mobileExpansion = !this.mobileExpansion
   }
 
 }
