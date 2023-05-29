@@ -146,9 +146,6 @@ li:hover{
 }
 
 .results-container-mobile{
-    z-index: 2;
-    position: fixed;
-    top: 90.5px;
     background-color: var(--primary-background);
     color: var(--primary-text);
     width: calc(90vw + 4px);
@@ -159,5 +156,4 @@ li:hover{
     border-bottom-right-radius: 6px;
     display:flex;
     flex-direction: column;
-    padding-top: px;
 }

@@ -72,23 +72,23 @@ h2{
 } 
 
 .highlighted-upvote{
-    height: 40%;
+    height: 38%;
     transform: rotate(0.5turn);
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-upvote{
-    height: 40%;
+    height: 38%;
     transform: rotate(0.5turn);
 }
 
 .highlighted-downvote{
-    height: 40%;
+    height: 38%;
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-downvote{
-    height: 40%;
+    height: 38%;
 }
 
 .unhighlighted-upvote:hover{
@@ -132,4 +132,24 @@ button:hover{
 
 button-container{
     padding-left: 0px;
+}
+
+.highlighted-upvote{
+    height: 38%;
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-upvote{
+    height: 38%;
+}
+
+.highlighted-downvote{
+    height: 38%;
+    transform: rotate(0.5turn);
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-downvote{
+    height: 38%;
+    transform: rotate(0.5turn);
 }

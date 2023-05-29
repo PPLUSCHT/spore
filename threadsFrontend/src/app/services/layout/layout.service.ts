@@ -11,7 +11,7 @@ export class LayoutService{
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   begin(): void {
-    this.breakpointObserver.observe(Breakpoints.Handset)
+    this.breakpointObserver.observe(Breakpoints.HandsetPortrait)
         .subscribe(result => {
           if (result.matches){
             this.phone = true

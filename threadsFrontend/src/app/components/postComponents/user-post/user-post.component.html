@@ -7,7 +7,7 @@
         <h2>{{this.postData.title}}</h2>
     </div>
     <div class="content-and-votes">
-        <div class="upvote-container">
+        <div class="upvote-container" *ngIf="!phone">
             <img [ngClass]= "upvoteHighlight ? 
             'highlighted-upvote' : 'unhighlighted-upvote'" 
             (click) = "upvoteButton()" src="assets/svg/down.svg"/>
@@ -16,6 +16,17 @@
             </div>
             <img [ngClass]= "downvoteHighlight ? 
             'highlighted-downvote' : 'unhighlighted-downvote'" 
+            (click) = "downvoteButton()" src="assets/svg/down.svg"/>
+        </div>
+        <div class="upvote-container" *ngIf="phone">
+            <img [ngClass]= "upvoteHighlight ? 
+            'highlighted-upvote-mobile' : 'unhighlighted-upvote-mobile'" 
+            (click) = "upvoteButton()" src="assets/svg/down.svg"/>
+            <div class= "voteTotal">
+                {{postData.voteTotal}}
+            </div>
+            <img [ngClass]= "downvoteHighlight ? 
+            'highlighted-downvote-mobile' : 'unhighlighted-downvote-mobile'" 
             (click) = "downvoteButton()" src="assets/svg/down.svg"/>
         </div>
         <div class="content">
