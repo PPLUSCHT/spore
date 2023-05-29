@@ -136,7 +136,8 @@ li:hover{
     margin-right: auto;
     font-size: 0.6em;
     margin-top: 10px;
-    padding: none;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .search-input-mobile:focus{
