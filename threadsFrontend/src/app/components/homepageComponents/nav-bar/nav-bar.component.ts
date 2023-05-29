@@ -107,6 +107,7 @@ export class NavBarComponent implements AfterContentChecked, OnInit {
     this.searchResults = false
     this.mouseFocus = 0
     this.router.navigateByUrl(`Posts/${postID}`)
+    this.mobileExpansion = false
   }
 
   public routeToSearch(): void{

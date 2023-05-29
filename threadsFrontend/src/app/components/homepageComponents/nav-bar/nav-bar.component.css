@@ -130,12 +130,13 @@ li:hover{
 }
 
 .search-input-mobile{
-    width: calc(90vw + 4px);
+    width: calc(90% + 4px);
     background-color: var(--primary-background);
     margin-left: auto;
     margin-right: auto;
     font-size: 0.6em;
     margin-top: 10px;
+    padding: none;
 }
 
 .search-input-mobile:focus{
@@ -148,7 +149,7 @@ li:hover{
 .results-container-mobile{
     background-color: var(--primary-background);
     color: var(--primary-text);
-    width: calc(90vw + 4px);
+    width: calc(90% + 4px);
     font-size: 0.6em;
     border: 2px solid var(--active);
     border-top: none;
