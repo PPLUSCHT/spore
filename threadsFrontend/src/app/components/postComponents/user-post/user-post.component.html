@@ -1,5 +1,5 @@
 <div class="post-and-comments">
-<div class="user-post">
+<div [ngClass]="phone ? 'user-post-mobile' : 'user-post'">
     <div class="user-info">
         <span>{{postData.posterName}} | {{postData.timeString}}</span>
     </div>

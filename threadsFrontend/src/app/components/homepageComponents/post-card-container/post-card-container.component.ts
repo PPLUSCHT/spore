@@ -4,6 +4,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { Timeframe } from 'src/app/enums/Timeframe';
 import { ReceivedPost } from 'src/app/interfaces/recievedObjects/ReceivedPost';
 import { HomepageService } from 'src/app/services/homepage/homepage.service';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-post-card-container',
@@ -19,8 +20,10 @@ export class PostCardContainerComponent implements OnInit, OnChanges {
   page = 0
   outOfPosts = false
   loading = false
+  phone = false
 
-  constructor(private homepageService: HomepageService) { }
+  constructor(private homepageService: HomepageService, 
+              private layout: LayoutService) { }
 
   ngOnInit(): void {
     this.posts.subscribe(
@@ -30,6 +33,7 @@ export class PostCardContainerComponent implements OnInit, OnChanges {
       exhaustMap(() => this.homepageService.getTopPeriod(this.page, this.timeframe))
     ).subscribe((p) => this.updatePosts(p))
     this.loadPage(0)
+    this.phone = this.layout.getPhoneState()
   }
 
   ngOnChanges(changes: SimpleChanges): void {

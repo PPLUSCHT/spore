@@ -1,4 +1,4 @@
-<div class="container">
+<div [ngClass]="phone ? 'container-mobile':'container'">
     <ul *ngFor="let comment of comments">
         <li>
             <ng-template *appCommentType="comment" (deleteComment)="removeChild($event)"></ng-template>

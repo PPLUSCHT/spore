@@ -7,7 +7,7 @@
             <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
-    <div *ngIf="postsExist" class="post-card-container"
+    <div *ngIf="postsExist" [ngClass]="phone ? 'post-card-container-mobile':'post-card-container'"
         infiniteScroll
         [infiniteScrollDistance]="1"
         [infiniteScrollThrottle]="1000"

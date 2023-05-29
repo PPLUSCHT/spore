@@ -13,6 +13,14 @@
     width: 80vw;
 }
 
+.container-mobile{
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: var(--primary-background);
+    width: calc(100vw - 30px);
+}
+
 ul{
     list-style-type: none;
     padding-left: 10px;

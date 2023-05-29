@@ -10,6 +10,11 @@
     margin: 0px;
 }
 
+.post-card-container-mobile{
+  width: 98vw;
+  margin: 0px;
+}
+
 .empty-cards{
     margin-top: 10px;
     color: var(--primary-background);

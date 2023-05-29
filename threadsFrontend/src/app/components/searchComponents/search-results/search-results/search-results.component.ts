@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ReceivedPost } from 'src/app/interfaces/recievedObjects/ReceivedPost';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 import { PostDataService } from 'src/app/services/post/post-data-service.service';
 
 @Component({
@@ -16,10 +17,13 @@ export class SearchResultsComponent implements OnInit {
   page = 0
   outOfPosts = false
   loading = false
+  phone = false
 
   query!:string
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostDataService) { 
+  constructor(private activatedRoute: ActivatedRoute, 
+              private postService: PostDataService,
+              private layout: LayoutService) { 
     activatedRoute.queryParamMap
         .subscribe((paramMap) => {
           let queryStr = paramMap.get("query")
@@ -47,6 +51,7 @@ export class SearchResultsComponent implements OnInit {
     this.posts.next([])
     this.page = 0
     this.loadPage(0)
+    this.phone = this.layout.getPhoneState()
   }
 
   public loadPage(page:number): void{

@@ -1,7 +1,9 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Timeframe } from 'src/app/enums/Timeframe';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 
 @Component({
@@ -19,8 +21,11 @@ export class TopBarComponent implements OnChanges{
   @Output() loggedInChange = new EventEmitter<boolean>()
 
   loggedInText!:string
+  phone:boolean = false
 
-  constructor(private router: Router, private auth: AuthorizationService){
+  constructor(private router: Router, 
+              private auth: AuthorizationService,
+              private layout: LayoutService){
     this.updateLoginText()
   }
   
@@ -28,6 +33,7 @@ export class TopBarComponent implements OnChanges{
     if(changes["loggedIn"]){
       this.updateLoginText()
     }
+    this.phone = this.layout.getPhoneState()
   }
 
   private updateLoginText(){

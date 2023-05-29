@@ -2,7 +2,7 @@
     <div *ngIf="!postsExist" class="empty-cards">
         No results found for "{{this.query}}"
     </div>
-    <div *ngIf="postsExist" class="post-card-container"
+    <div *ngIf="postsExist" [ngClass]="phone ? 'post-card-container-mobile':'post-card-container'"
         infiniteScroll
         [infiniteScrollDistance]="2"
         [infiniteScrollThrottle]="50"

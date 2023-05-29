@@ -25,3 +25,26 @@
 .action-button:hover{
     color: var(--active)
 }
+
+
+.timeframe-container-mobile{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--secondary-background);
+    padding-top: 25px;
+    max-width: 100vw;
+}
+
+.action-button-mobile{
+    border: none;
+    background-color: var(--secondary-background);
+    color: var(--primary-background);
+    font-size: 1em;
+}
+
+.selected-button-mobile{
+    color: var(--active);
+    border: none;
+    background-color: var(--secondary-background);
+    font-size: 1em;
+}
