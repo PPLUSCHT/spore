@@ -15,9 +15,12 @@ import { UserService } from 'src/app/services/user/user-service.service';
 export class SignUpComponent implements OnInit{
   
   newUserForm = this.formBuilder.group({
-    username: new FormControl(''),
-    password: new FormControl('')
+    username: new FormControl('Username'),
+    password: new FormControl('Password')
   })
+
+  usernameClicked = false
+  passwordClicked = false
 
   previousURL:string = ""
 
@@ -158,4 +161,19 @@ export class SignUpComponent implements OnInit{
   private usernameCheck(): void{
     this.usernameValid =  this.usernameShortEnough && this.usernameLongEnough && this.usernameUniqueBool
   }
+
+  public usernameClick(){
+    if (this.usernameClicked === false){
+      this.newUserForm.get('username')?.setValue('')
+      this.usernameClicked = true
+    }
+  }
+
+  public passwordClick(){
+    if (this.passwordClicked === false){
+      this.newUserForm.get('password')?.setValue('')
+      this.passwordClicked = true
+    }
+  }
+
 }

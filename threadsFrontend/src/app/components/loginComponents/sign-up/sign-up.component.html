@@ -1,18 +1,12 @@
 <div class="sign-up-box">
     <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()" class="sign-up-form">
-        <div class="input-row">
-            <label for="username" class="username-label">Username: </label>
-            <input id="username" type="text" formControlName="username"  class="username-input">
-        </div>
+        <input id="username" type="text" formControlName="username"  class="username-input" (click)="usernameClick()">
         <ng-container class="username-errors">
             <span *ngIf="!usernameLongEnough" class="alert-message">*Username too short</span>
             <span *ngIf="!usernameShortEnough" class="alert-message">*Username too long</span>
             <span *ngIf="!usernameUniqueBool" class="alert-message">*Username must be unique</span>
         </ng-container>
-        <div class="input-row">
-            <label for="password"  class="password-label">Password: </label>
-            <input id="password" type="text" formControlName="password"  class="password-input">
-        </div>
+        <input id="password" type="text" formControlName="password"  class="password-input" (click)="passwordClick()">
         <ng-container class="password-errors">
             <span *ngIf="!passwordLongEnough" class="alert-message">*Password too short</span>
             <span *ngIf="!passwordShortEnough" class="alert-message">*Password too long</span>

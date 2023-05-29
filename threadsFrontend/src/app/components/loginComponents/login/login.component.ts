@@ -14,9 +14,12 @@ import { PreviousUrlService } from 'src/app/services/previous-url/previous-url.s
 export class LoginComponent implements OnInit{
 
   loginForm = this.formBuilder.group({
-    username: new FormControl(''),
-    password: new FormControl('')
+    username: new FormControl('Username'),
+    password: new FormControl('Password')
   })
+
+  usernameClicked = false
+  passwordClicked = false
 
   private previousURL: string = '';
 
@@ -87,4 +90,17 @@ export class LoginComponent implements OnInit{
     return true;
   }
 
+  public usernameClick(){
+    if (this.usernameClicked === false){
+      this.loginForm.get('username')?.setValue('')
+      this.usernameClicked = true
+    }
+  }
+
+  public passwordClick(){
+    if (this.passwordClicked === false){
+      this.loginForm.get('password')?.setValue('')
+      this.passwordClicked = true
+    }
+  }
 }

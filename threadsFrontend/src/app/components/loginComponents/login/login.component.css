@@ -6,45 +6,33 @@
 }
 
 .login-form{
-    margin-top: 25px;
+    margin-top: 30px;
     padding: 10px;
-    padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 10px;
 
     width: 330px;
     height: 92px;
 
-    display: grid;
-    grid-template-columns: 90px 110px 110px;
-    gap: 10px;
-    grid-template-rows: repeat(3, 1.6em);
+    display: flex;
+    flex-direction: column;
 
     background-color: var(--primary-background);
 }
 
 input{
     font-size: 1em;
-}
-
-label{
-    font-size: 1.3em;
-}
-
-.username-input{
-    grid-column: 2/4;
-}
-
-.password-input{
-    grid-column: 2/4;
+    margin-top: 10px;
 }
 
 .login-button{
-    grid-column: 3/4;
+    margin-left: auto;
     background-color: var(--secondary-background);
     color: var(--primary-background);
     border-radius: 5px;
     border: none;
+    margin-top: 10px;
+    width: 75px;
 }
 
 .login-button:hover{
