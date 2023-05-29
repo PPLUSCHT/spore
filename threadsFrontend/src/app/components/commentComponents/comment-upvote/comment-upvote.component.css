@@ -33,6 +33,8 @@
 }
 
 .upvote-container{
+    padding-top: 2px;
+    padding-bottom: 2px;
     width: 100%;
     height: 100%;
     display: flex;
