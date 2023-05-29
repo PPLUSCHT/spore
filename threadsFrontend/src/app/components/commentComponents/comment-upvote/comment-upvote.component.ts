@@ -3,6 +3,8 @@ import { UpvoteScore } from 'src/app/enums/UpvoteScore';
 import { CommentVoteRequest } from 'src/app/interfaces/requestObjects/CommentVoteRequest';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 import { CommentService } from 'src/app/services/comment/comment-service.service';
+import { LayoutService } from 'src/app/services/layout/layout.service';
+import { __makeTemplateObject } from 'tslib';
 
 @Component({
   selector: 'app-comment-upvote',
@@ -21,8 +23,11 @@ export class CommentUpvoteComponent implements OnInit {
 
   public upvoteHighlight:boolean = false;
   public downvoteHighlight:boolean = false;
+  phone:boolean = false;
 
-  constructor(private service: CommentService, private auth: AuthorizationService) { }
+  constructor(private service: CommentService, 
+              private auth: AuthorizationService,
+              private layout: LayoutService) { }
 
   ngOnInit(): void {
     if(this.vote == UpvoteScore.Upvote){
@@ -31,6 +36,7 @@ export class CommentUpvoteComponent implements OnInit {
     else if(this.vote == UpvoteScore.Downvote){
       this.downvoteHighlight = true
     }
+    this.phone = this.layout.getPhoneState()
   }
 
   public changeVote(previousVote:UpvoteScore , vote:UpvoteScore){

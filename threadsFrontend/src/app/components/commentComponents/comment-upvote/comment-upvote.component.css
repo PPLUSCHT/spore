@@ -5,23 +5,23 @@
 }
 
 .highlighted-upvote{
-    height: 40%;
+    height: 38%;
     transform: rotate(0.5turn);
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-upvote{
-    height: 40%;
+    height: 38%;
     transform: rotate(0.5turn);
 }
 
 .highlighted-downvote{
-    height: 40%;
+    height: 38%;
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-downvote{
-    height: 40%;
+    height: 38%;
 }
 
 .unhighlighted-upvote:hover{
@@ -42,4 +42,25 @@
     color: var(--primary-background);
     background-color: var(--secondary-background);
     border-radius: 10%;
-} 
+}
+
+
+.highlighted-upvote-mobile{
+    height: 38%;
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+}
+
+.unhighlighted-upvote-mobile{
+    height: 38%;
+}
+
+.highlighted-downvote-mobile{
+    height: 38%;
+    filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
+    transform: rotate(0.5turn);
+}
+
+.unhighlighted-downvote-mobile{
+    height: 38%;
+    transform: rotate(0.5turn);
+}

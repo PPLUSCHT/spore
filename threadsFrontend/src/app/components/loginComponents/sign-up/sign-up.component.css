@@ -33,7 +33,7 @@ label{
 }
 
 input{
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .alert-message{
@@ -45,12 +45,12 @@ input{
 button{
     margin-left: auto;
     margin-top: 5px;
-    width: 100px;
+    width: 130px;
     background-color: var(--secondary-background);
     border-radius: 5px;
     border: none;
     color: var(--primary-background);
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 button:hover{
