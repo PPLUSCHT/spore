@@ -109,7 +109,7 @@ li:hover{
 
 .actions-mobile{
     z-index: 2;
-    position: absolute;
+    position: fixed;
     top: 34.5px;
     background-color: var(--secondary-background);
     color: var(--primary-background);
@@ -147,7 +147,7 @@ li:hover{
 
 .results-container-mobile{
     z-index: 2;
-    position: absolute;
+    position: fixed;
     top: 59px;
     background-color: var(--primary-background);
     color: var(--primary-text);
