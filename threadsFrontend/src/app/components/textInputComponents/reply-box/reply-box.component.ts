@@ -7,6 +7,7 @@ import { AbstractTextBoxComponent } from '../abstract-text-box/abstract-text-box
 import { PostDataStorageService } from 'src/app/services/post-data-storage/post-data-storage.service';
 import { environment } from 'src/environments/environment';
 import { Subject, debounceTime, exhaustMap } from 'rxjs';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-reply-box',
@@ -28,8 +29,9 @@ export class ReplyBoxComponent extends AbstractTextBoxComponent implements OnIni
 
   constructor(private service:PostDataStorageService, 
               private auth:AuthorizationService,
-              private commentService: CommentService) {
-    super()
+              private commentService: CommentService,
+              layout: LayoutService) {
+    super(layout)
   }
 
   override ngOnInit(): void {

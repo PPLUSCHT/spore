@@ -7,6 +7,7 @@ import { PostDataStorageService } from 'src/app/services/post-data-storage/post-
 import { environment } from 'src/environments/environment';
 import { Subject, debounceTime, exhaustMap } from 'rxjs';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-comment-edit',
@@ -28,8 +29,9 @@ export class CommentEditComponent extends AbstractTextBoxComponent implements On
 
   constructor(private service:CommentService, 
               postDataStorage: PostDataStorageService,
-              private auth: AuthorizationService){
-    super()
+              private auth: AuthorizationService,
+              layout: LayoutService){
+    super(layout)
     postDataStorage.getID().subscribe((id) => this.postID = id!)
   }
 
