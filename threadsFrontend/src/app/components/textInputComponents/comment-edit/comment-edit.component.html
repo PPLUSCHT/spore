@@ -15,6 +15,6 @@
                 <span class="button-text">Cancel</span>
             </button>
         </div>
-        <app-character-count (withinLengthEmitter)="updateLengthConstraint($event)" [maxLength]="MAX_LENGTH" [content]="currentText"></app-character-count>
+        <app-character-count *ngIf="!phone" (withinLengthEmitter)="updateLengthConstraint($event)" [maxLength]="MAX_LENGTH" [content]="currentText"></app-character-count>
     </div>
 </form>
