@@ -138,20 +138,20 @@ button-container{
 
 .highlighted-upvote-mobile{
     height: 38%;
-    transform: rotate(0.5turn);
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-upvote-mobile{
     height: 38%;
-    transform: rotate(0.5turn);
 }
 
 .highlighted-downvote-mobile{
     height: 38%;
+    transform: rotate(0.5turn);
     filter: invert(32%) sepia(73%) saturate(1580%) hue-rotate(335deg) brightness(102%) contrast(93%);
 }
 
 .unhighlighted-downvote-mobile{
+    transform: rotate(0.5turn);
     height: 38%;
 }
