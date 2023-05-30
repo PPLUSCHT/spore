@@ -2,6 +2,7 @@ import { Component, EventEmitter,
   Input, OnInit, Output } from '@angular/core';
 
 import { FormControl, FormsModule } from '@angular/forms';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-abstract-text-box',
@@ -15,9 +16,14 @@ export class AbstractTextBoxComponent implements OnInit{
   @Output() deleteDialog = new EventEmitter<boolean>();
   formText:FormControl = new FormControl(this.text)
   loading: boolean = false;
+  phone: boolean = false;
+
+  constructor(private layout: LayoutService){
+  }
 
   ngOnInit(): void {
     this.formText.setValue(this.text)
+    this.phone = this.layout.getPhoneState()
   }
   
   onSubmit(): void {

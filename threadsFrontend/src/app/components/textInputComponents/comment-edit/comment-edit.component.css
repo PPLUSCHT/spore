@@ -1,3 +1,7 @@
+.edit-container{
+    padding-left: 10px;
+}
+
 .comment-area{
     width: 90%;
     min-height: 100px;
@@ -30,7 +34,7 @@ button:hover{
 .buttons-and-length-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .button-container{

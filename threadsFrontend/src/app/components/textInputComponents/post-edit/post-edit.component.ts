@@ -7,6 +7,7 @@ import { PostDataStorageService } from 'src/app/services/post-data-storage/post-
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 import { environment } from 'src/environments/environment';
 import { Subject, debounceTime, exhaustMap } from 'rxjs';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-post-edit',
@@ -25,9 +26,10 @@ export class PostEditComponent extends AbstractTextBoxComponent implements OnIni
 
   constructor(private service: PostDataService, 
               private postDataStorage: PostDataStorageService,
-              private auth: AuthorizationService)
+              private auth: AuthorizationService,
+              layout: LayoutService)
   {
-    super()
+    super(layout)
   }
 
   override ngOnInit() : void {
