@@ -30,7 +30,7 @@ button:hover{
 .buttons-and-length-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 100%;
 }
 
